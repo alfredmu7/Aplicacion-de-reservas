@@ -1,0 +1,11 @@
+# Node.js (para frontend)
+frontend/node_modules
+frontend/.env
+
+# Java (para backend)
+backend/target/
+backend/.idea/
+backend/.env
+
+# General
+.DS_Store
