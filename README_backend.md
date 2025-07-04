@@ -14,7 +14,7 @@ El respositorio contiene tanto el frontend como el backend.
 
 **Nombre del repositorio:** Aplicación de reservas
 **Descripción:** Desafio final DH - Frontend y Backend (React y Java Spring Boot)
-**Enlace de repositorio:** https://github.com/alfredmu7/Aplicaci-n-de-reservas
+**Enlace de repositorio:** https://github.com/alfredmu7/Aplicacion-de-reservas.git
 
 ---
 

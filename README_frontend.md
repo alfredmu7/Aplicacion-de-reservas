@@ -11,9 +11,11 @@ Aplicación web para la reserva de servicios de técnicos (plomeros, electricist
 
 ##  Link del repositorio Frontend & backend
 
-[App-Reservas - Desafio final DH - Frontend (React)](https://github.com/alfredmu7/App-Reservas/tree/frontend)
 
-[App-Reservas - Desafio final DH - Backend (Java Spring Boot)](https://github.com/alfredmu7/App-Reservas/tree/master)
+**Nombre del repositorio:** Aplicación de reservas
+**Descripción:** Desafio final DH - Frontend y Backend (React y Java Spring Boot)
+**Enlace de repositorio:** https://github.com/alfredmu7/Aplicacion-de-reservas.git
+
 
 ---
 ## Carga inicial de la base de datos
