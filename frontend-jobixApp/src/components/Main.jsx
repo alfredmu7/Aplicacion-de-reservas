@@ -23,7 +23,9 @@ useEffect(() => {
       </section>
   
 
-    <ProductFilterByCategory/>
+    <ProductFilterByCategory
+    user={user}
+    />
 
     
     

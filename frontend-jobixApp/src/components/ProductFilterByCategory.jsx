@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/ProductFilterByCategory.css"
 import { Link } from 'react-router-dom';
+import { FavoriteProductCard } from './FavoriteProductCard';
 
-export const ProductFilterByCategory = () => {
+export const ProductFilterByCategory = ({user}) => {
 
   
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [FilteredProducts, setFilteredProducts] = useState([]);
+  const [userFavorite, setUserFavorite] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 2;
 
@@ -51,8 +53,21 @@ export const ProductFilterByCategory = () => {
   }, []);
 
   useEffect(() => {
+    fetch("http://localhost:8080/api/favorites", { credentials: "include" })
+      .then(res => {
+        if (!res.ok) throw new Error("Error al obtener favoritos");
+        return res.json();
+      })
+      .then(data => setUserFavorite(data))
+      .catch(err => console.error("Error al cargar favoritos", err));
+  }, []);
+
+  useEffect(() => {
     setCurrentPage(1); //reinicia a la página 1 al aplicar filtros
   }, [FilteredProducts]);
+
+  
+
 
    // Maneja la selección/deselección de categorías
    const handleCategoryChange = (categoryId) => {
@@ -73,6 +88,31 @@ export const ProductFilterByCategory = () => {
      }
    }, [selectedCategories, products]);
    
+//se crea funcion para agregar o quitar fav
+const handleToogleFavorite = (productId, isCurrenlyFavorite) => {
+
+  if(!user){
+    // revisamos si esta registrado, sino lanzamos una advertencia
+    console.warn("Intento de favorito sin iniciar sesión.");
+    return;
+  }
+
+
+  const url = `http://localhost:8080/api/favorites/${productId}`;
+  const method= isCurrenlyFavorite ? 'DELETE' : 'POST';
+
+  fetch(url, {method, credentials:"include"})
+  .then((res) =>{
+    if(!res.ok) throw new Error("Error al actualizar favoritos");
+
+    // Actualizar estado local para reflejar el cambio visualmente
+    setUserFavorite((prevFavorite) =>
+    isCurrenlyFavorite ? prevFavorite.filter((id) => id !== productId) : [...prevFavorite, productId]
+    );
+  })
+  .catch((err) => console.error("Error al cambiar favorito", err));
+}
+  
 
 
    const clearFilter = () => {
@@ -145,6 +185,16 @@ export const ProductFilterByCategory = () => {
                     />
                     )}
               </Link>
+              
+                <FavoriteProductCard
+                key={p.id}
+                product={p}
+                isFavorite={userFavorite.includes(p.id)}
+                onToggleFavorite={handleToogleFavorite}
+                user={user}
+              />
+              
+              
             </div>
           ))}
          </div>

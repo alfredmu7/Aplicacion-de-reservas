@@ -20,6 +20,7 @@ import { PolicyForm } from './components/PolicyForm';
 import { ReservationConfirmationPage } from './pages/ReservationConfirmationPage';
 import { ReservationHistory } from './pages/ReservationHistory';
 import { MyProfile } from './pages/MyProfile';
+import { ProductFilterByCategory } from './components/ProductFilterByCategory';
 
 
 
@@ -63,6 +64,7 @@ export const JobixApp = () => {
     <Header user={user} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Main user={user}/>} />
+        <Route path="/" element={<ProductFilterByCategory user={user} />} />
         <Route path='/admin' element={<AdminRoute user={user}><AdminPanel/></AdminRoute>}/>
         <Route path="/register-form" element={<RegisterForm/>}/>
         <Route path="/login" element={<LoginForm onLogin={handleLogin}/>}/>
