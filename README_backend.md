@@ -14,8 +14,30 @@ El respositorio contiene tanto el frontend como el backend.
 
 **Nombre del repositorio:** Aplicación de reservas
 **Descripción:** Desafio final DH - Frontend y Backend (React y Java Spring Boot)
-**Enlace de repositorio:** https://github.com/alfredmu7/Aplicacion-de-reservas.git
+**Enlace de repositorio:** `https://github.com/alfredmu7/Aplicacion-de-reservas.git`
 
+---
+## Ejecutar el proyecto JobixApp (Frontend + Backend) desde tu computadora
+
+Clonar el repositorio: Abre tu terminal y ejecuta: `git clone https://github.com/alfredmu7/Aplicacion-de-reservas.git`
+
+**Backend**
+**Asegúrate de tener instalado en tu máquina o pc:**Node.js, npm, Java JDK, Maven, Git, MySQL o H2
+1- Dentro del proyecto, ve a la carpeta del backend (por ejemplo, jobix-backend) usando el comando: `cd backend`
+2- Si no existe o no esta creada. En el mismo nivel del backend, crea una carpeta para almacenar imágenes subidas: `mkdir img_uploads`
+3- Ejecutar el backend: `./mvnw spring-boot:run` o si tienes Maven instalado globalmente: `mvn spring-boot:run`
+4- El backend se debería levantar en: `http://localhost:8080`
+
+
+**Frontend**
+**Asegúrate de tener instalado en tu máquina o pc:** 
+1- En la terminal ejecuta para hacer las instalaciones correspondientes: `npm install`
+2- Ejecutar el frontend: `npm run dev`
+3- Esto abrirá la app en: `http://localhost:5173`
+
+**Recuerda:**
+1- Algunas funciones como favoritos, reservas o panel de administración requieren que el usuario haya iniciado sesión.
+2- Asegúrate de ejecutar frontend y backend en la misma máquina.
 ---
 
 ## Tecnologías utilizadas
@@ -49,6 +71,12 @@ administración (frontend) o directamente desde un cliente de base de datos (MyS
 Por ejemplo, las categorías, features (características), productos, usuarios y demás, deben ser ingresados manualmente al principio (dentro del panel de admin está la opción para agregar cada uno), estos se agregarán en el formulario para agregar nuevo producto (aplica solo para categoría y características).
 
 Tener en cuenta: Al iniciar el proyecto por primera vez, verás una aplicación funcional, pero sin datos pre-cargados.
+
+Con el fin de poder visualizar y comprobar que si se este alimentando la Base de Datos una vez ingresados los datos desde el frontend o la pagina web. 
+1- Escribe en tu navegador: localhost:8080/h2-console/
+2- Ingresa el password: sa 
+3- Clic en botón "Connect"
+4- Accederás a la base de datos y podras verificar la informacion que ingresaste desde el frontend
 
 ---
 
